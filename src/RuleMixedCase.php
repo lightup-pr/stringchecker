@@ -17,8 +17,8 @@ class RuleMixedCase extends RuleBase
      */
     public function __construct(array $config)
     {
-        $this->minLower = $config['lower'] ?? 1;
-        $this->minUpper = $config['upper'] ?? 1;
+        $this->minLower = $config['minLower'] ?? 1;
+        $this->minUpper = $config['minUpper'] ?? 1;
     }
 
     /**
@@ -45,17 +45,17 @@ class RuleMixedCase extends RuleBase
     /**
      * @return int
      */
-    public function countUpper()
+    public function countLower()
     {
-        return strlen(preg_replace('/[a-z]+/', '', $this->inputString));
+        return preg_match_all('/[A-Z]+/', $this->inputString);
     }
 
     /**
      * @return int
      */
-    public function countLower()
+    public function countUpper()
     {
-        return strlen(preg_replace('/[A-Z]+/', '', $this->inputString));
+        return preg_match_all('/[a-z]+/', $this->inputString);
     }
 
 }

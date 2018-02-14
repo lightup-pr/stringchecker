@@ -6,9 +6,8 @@ use PHPUnit\Framework\TestCase;
 
 class RuleMixedCaseTest extends TestCase
 {
-    const LOWER_KEYWORD = 'lower';
-
-    const UPPER_KEYWORD = 'upper';
+    const LOWER_KEYWORD = 'minLower';
+    const UPPER_KEYWORD = 'minUpper';
 
     public function testShouldPassesWhenStringContainsCorrectQuantityOfRequiredChars()
     {

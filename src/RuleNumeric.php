@@ -13,11 +13,11 @@ class RuleNumeric extends RuleBase
 
     /**
      * RuleNumeric constructor.
-     * @param int $minNumChars
+     * @param array $config
      */
-    public function __construct(int $minNumChars)
+    public function __construct(array $config)
     {
-        $this->minNumChars = $minNumChars;
+        $this->minNumChars = $config['minNumChars'];
     }
 
     /**
@@ -29,10 +29,10 @@ class RuleNumeric extends RuleBase
         $length = strlen($this->inputString);
         $passed = $this->countNumeric() >= $this->minNumChars;
         if (!$passed) {
-            $message = "Quantidade de caracteres inválida (%s): A quantidade de caracteres deve ser entre %s e %s";
+            $message = "Quantidade de caracteres numericos inválida (%s): A quantidade ser minima e %s";
             throw new \Exception(sprintf($message, $length, $this->minNumChars, $this->maxLength));
         }
-        return $passed;
+        return !!$passed;
     }
 
     /**
@@ -40,6 +40,6 @@ class RuleNumeric extends RuleBase
      */
     public function countNumeric()
     {
-        return strlen(preg_replace('/[0-9]+/', '', $this->inputString));
+        return preg_match_all('/[0-9]/', $this->inputString);
     }
 }
