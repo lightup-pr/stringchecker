@@ -2,7 +2,10 @@
 
 namespace Lightup\PasswordChecker;
 
-
+/**
+ * Class StringValidationException
+ * @package Lightup\PasswordChecker
+ */
 class StringValidationException extends \Exception
 {
     protected $errors;

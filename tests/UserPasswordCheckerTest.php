@@ -12,7 +12,7 @@ class UserPasswordCheckerTest extends TestCase
 {
     public function testShouldThrowExceptionWithWhenTotalNumericCharsIsLessThanRequired()
     {
-        $input = 'Abcdefg1';
+        $input = 'abc';
         $rule = (new UserPasswordChecker())->setInputString($input);
 
         try {

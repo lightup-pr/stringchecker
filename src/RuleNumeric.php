@@ -29,7 +29,7 @@ class RuleNumeric extends RuleBase
         $numCharsFound = $this->countNumeric();
         $passed = $numCharsFound >= $this->minNumChars;
         if (!$passed) {
-            $message = "Quantidade de caracteres numericos inválida (%s): A quantidade ser minima e %s";
+            $message = "Quantidade de caracteres numericos inválida (%s): A quantidade minima e %s";
             throw new StringValidationException(sprintf($message, $numCharsFound, $this->minNumChars));
         }
         return !!$passed;
