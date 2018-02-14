@@ -1,6 +1,11 @@
 <?php
 
-namespace Lightup\PasswordChecker;
+namespace Lightup\PasswordChecker\CompositeRules;
+
+use Lightup\PasswordChecker\BaseRules\RuleBase;
+use Lightup\PasswordChecker\BaseRules\RuleInterface;
+use Lightup\PasswordChecker\Exceptions\StringValidationException;
+
 
 /**
  * Class CompositeRuleBase

@@ -1,6 +1,9 @@
 <?php
 
-namespace Lightup\PasswordChecker;
+namespace Lightup\PasswordChecker\BaseRules;
+
+use Lightup\PasswordChecker\Exceptions\StringValidationException;
+
 
 /**
  * Class RuleNumeric

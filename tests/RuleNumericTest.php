@@ -2,6 +2,8 @@
 
 namespace Lightup\PasswordChecker;
 
+use Lightup\PasswordChecker\BaseRules\RuleNumeric;
+use Lightup\PasswordChecker\Exceptions\StringValidationException;
 use PHPUnit\Framework\TestCase;
 
 class RuleNumericTest extends TestCase
@@ -12,7 +14,7 @@ class RuleNumericTest extends TestCase
             'min' => 2
         ];
         $rule = (new RuleNumeric($config))->setInputString('Abcdefg1');
-        $this->expectException(\Exception::class);
+        $this->expectException(StringValidationException::class);
         $this->assertTrue($rule->passes());
     }
 

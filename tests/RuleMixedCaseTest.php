@@ -2,6 +2,8 @@
 
 namespace Lightup\PasswordChecker;
 
+use Lightup\PasswordChecker\BaseRules\RuleMixedCase;
+use Lightup\PasswordChecker\Exceptions\StringValidationException;
 use PHPUnit\Framework\TestCase;
 
 class RuleMixedCaseTest extends TestCase
@@ -27,7 +29,7 @@ class RuleMixedCaseTest extends TestCase
             self::UPPER_KEYWORD => 2,
         ];
         $rule = (new RuleMixedCase($config))->setInputString('batatinhaFrita');
-        $this->expectException(\Exception::class);
+        $this->expectException(StringValidationException::class);
         $result = $rule->passes();
         $this->assertTrue($result);
     }
@@ -39,7 +41,7 @@ class RuleMixedCaseTest extends TestCase
             self::UPPER_KEYWORD => 2,
         ];
         $rule = (new RuleMixedCase($config))->setInputString('Batatinha');
-        $this->expectException(\Exception::class);
+        $this->expectException(StringValidationException::class);
         $result = $rule->passes();
         $this->assertTrue($result);
     }

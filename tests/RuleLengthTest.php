@@ -2,6 +2,8 @@
 
 namespace Lightup\PasswordChecker;
 
+use Lightup\PasswordChecker\BaseRules\RuleLength;
+use Lightup\PasswordChecker\Exceptions\StringValidationException;
 use PHPUnit\Framework\TestCase;
 
 class RuleLengthTest extends TestCase
@@ -10,7 +12,7 @@ class RuleLengthTest extends TestCase
     {
         $config = ['min' => 8, 'max' => 10];
         $rule = (new RuleLength($config))->setInputString('BatatinhaFrita');
-        $this->expectException(\Exception::class);
+        $this->expectException(StringValidationException::class);
         $this->assertTrue($rule->passes());
     }
 
@@ -18,7 +20,7 @@ class RuleLengthTest extends TestCase
     {
         $config = ['min' => 8, 'max' => 10];
         $rule = (new RuleLength($config))->setInputString('Batata');
-        $this->expectException(\Exception::class);
+        $this->expectException(StringValidationException::class);
         $this->assertTrue($rule->passes());
     }
 

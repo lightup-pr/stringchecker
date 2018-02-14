@@ -1,14 +1,14 @@
 <?php
+
+namespace Lightup\PasswordChecker\BaseRules;
+
+use Lightup\PasswordChecker\Exceptions\StringValidationException;
+
+
 /**
- * Created by PhpStorm.
- * User: lfalmeida
- * Date: 2/9/18
- * Time: 5:14 PM
+ * Class RuleBase
+ * @package Lightup\PasswordChecker\BaseRules
  */
-
-namespace Lightup\PasswordChecker;
-
-
 abstract class RuleBase implements RuleInterface
 {
     protected $inputString;
@@ -38,7 +38,7 @@ abstract class RuleBase implements RuleInterface
         if (is_array($rules)) {
             foreach ($rules as $rule) {
                 if (!is_a($rule, RuleInterface::class)) {
-                    throw new \Exception('A regra precisa implementar a interface ' . RuleInterface::class);
+                    throw new StringValidationException('A regra precisa implementar a interface ' . RuleInterface::class);
                 }
             }
             return true;

@@ -1,6 +1,10 @@
 <?php
 
-namespace Lightup\PasswordChecker;
+namespace Lightup\PasswordChecker\CompositeRules;
+
+use Lightup\PasswordChecker\BaseRules\RuleLength;
+use Lightup\PasswordChecker\BaseRules\RuleMixedCase;
+use Lightup\PasswordChecker\BaseRules\RuleNumeric;
 
 /**
  * Class UserPasswordChecker
