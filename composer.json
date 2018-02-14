@@ -1,14 +1,8 @@
 {
     "name": "lightup/string-checker",
     "description": "",
-    "keywords": ["template", "composer", "package"],
-    "license": "DBAD",
-    "authors": [
-        {
-            "name": "Darwin Biler",
-            "email": "buonzz@gmail.com"
-        }
-    ],
+    "keywords": ["package"],
+    "license": "MIT",
     "type": "project",
     "require": {
 		"php": ">=7.0"
