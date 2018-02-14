@@ -8,35 +8,31 @@ class RuleLengthTest extends TestCase
 {
     public function testShouldThrowExceptionWithStringTooLong()
     {
-        $min = 8;
-        $max = 10;
-        $rule = (new RuleLength($min, $max))->setInputString('BatatinhaFrita');
+        $config = ['min' => 8, 'max' => 10];
+        $rule = (new RuleLength($config))->setInputString('BatatinhaFrita');
         $this->expectException(\Exception::class);
         $this->assertTrue($rule->passes());
     }
 
     public function testShouldThrowExceptionWithStringTooShort()
     {
-        $min = 8;
-        $max = 10;
-        $rule = (new RuleLength($min, $max))->setInputString('Batata');
+        $config = ['min' => 8, 'max' => 10];
+        $rule = (new RuleLength($config))->setInputString('Batata');
         $this->expectException(\Exception::class);
         $this->assertTrue($rule->passes());
     }
 
     public function testShouldReturnTrueWhenStringMatchesMaxAllowedLength()
     {
-        $min = 8;
-        $max = 10;
-        $rule = (new RuleLength($min, $max))->setInputString('pppppppppp');
+        $config = ['min' => 8, 'max' => 10];
+        $rule = (new RuleLength($config))->setInputString('pppppppppp');
         $this->assertTrue($rule->passes());
     }
 
     public function testShouldReturnTrueWhenStringMatchesMinAllowedLength()
     {
-        $min = 8;
-        $max = 10;
-        $rule = (new RuleLength($min, $max))->setInputString('aaaaaaaa');
+        $config = ['min' => 8, 'max' => 10];
+        $rule = (new RuleLength($config))->setInputString('aaaaaaaa');
         $this->assertTrue($rule->passes());
     }
 }

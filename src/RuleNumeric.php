@@ -26,11 +26,11 @@ class RuleNumeric extends RuleBase
      */
     public function passes()
     {
-        $length = strlen($this->inputString);
-        $passed = $this->countNumeric() >= $this->minNumChars;
+        $numCharsFound = $this->countNumeric();
+        $passed = $numCharsFound >= $this->minNumChars;
         if (!$passed) {
             $message = "Quantidade de caracteres numericos inválida (%s): A quantidade ser minima e %s";
-            throw new \Exception(sprintf($message, $length, $this->minNumChars, $this->maxLength));
+            throw new \Exception(sprintf($message, $numCharsFound, $this->minNumChars));
         }
         return !!$passed;
     }

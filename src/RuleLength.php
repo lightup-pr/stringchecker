@@ -2,17 +2,19 @@
 
 namespace Lightup\PasswordChecker;
 
-
+/**
+ *
+ */
 class RuleLength extends RuleBase
 {
     protected $minLength;
     protected $maxLength;
     protected $inputString;
 
-    public function __construct(int $minLength, int $maxLength)
+    public function __construct(array $config)
     {
-        $this->minLength = $minLength;
-        $this->maxLength = $maxLength;
+        $this->minLength = $config['min'];
+        $this->maxLength = $config['max'];
     }
 
     /**
