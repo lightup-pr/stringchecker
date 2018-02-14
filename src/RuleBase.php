@@ -45,8 +45,9 @@ abstract class RuleBase implements RuleInterface
         }
 
         if (!is_a($rules, RuleInterface::class)) {
-            throw new \Exception('A regra precisa implementar a interface ' . RuleInterface::class);
+            throw new StringValidationException('A regra precisa implementar a interface ' . RuleInterface::class);
         }
+
         return true;
     }
 }

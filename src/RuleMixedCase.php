@@ -30,13 +30,13 @@ class RuleMixedCase extends RuleBase
         $lower = $this->countLower();
         if ($lower < $this->minLower) {
             $message = "Quantidade de letras minusculas invalida (%s): E necessario ao menos %s";
-            throw new \Exception(sprintf($message, $lower, $this->minLower));
+            throw new StringValidationException(sprintf($message, $lower, $this->minLower));
         }
 
         $upper = $this->countUpper();
         if ($upper < $this->minUpper) {
             $message = "Quantidade de letras maiusculas invalida (%s): E necessario ao menos %s";
-            throw new \Exception(sprintf($message, $upper, $this->minLower));
+            throw new StringValidationException(sprintf($message, $upper, $this->minLower));
         }
 
         return true;
@@ -47,7 +47,7 @@ class RuleMixedCase extends RuleBase
      */
     public function countLower()
     {
-        return preg_match_all('/[A-Z]+/', $this->inputString);
+        return preg_match_all('/[a-z]/', $this->inputString);
     }
 
     /**
@@ -55,7 +55,7 @@ class RuleMixedCase extends RuleBase
      */
     public function countUpper()
     {
-        return preg_match_all('/[a-z]+/', $this->inputString);
+        return preg_match_all('/[A-Z]/', $this->inputString);
     }
 
 }

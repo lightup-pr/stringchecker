@@ -13,6 +13,7 @@ abstract class CompositeRuleBase extends RuleBase implements CompositeRulesInter
 
     /**
      *
+     * @throws StringValidationException
      */
     public function passes()
     {
@@ -25,6 +26,13 @@ abstract class CompositeRuleBase extends RuleBase implements CompositeRulesInter
                 $this->errors[] = $e->getMessage();
             }
         }
+
+        if (count($this->errors)) {
+            $exception = new StringValidationException('Dados invalidos');
+            $exception->setErrors($this->errors);
+            throw $exception;
+        }
+
         return true;
     }
 
