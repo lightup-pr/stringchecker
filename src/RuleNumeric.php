@@ -17,7 +17,7 @@ class RuleNumeric extends RuleBase
      */
     public function __construct(array $config)
     {
-        $this->minNumChars = $config['minNumChars'];
+        $this->minNumChars = $config['min'];
     }
 
     /**

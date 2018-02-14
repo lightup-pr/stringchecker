@@ -9,7 +9,7 @@ class RuleNumericTest extends TestCase
     public function testShouldThrowExceptionWithWhenTotalNumericCharsIsLessThanRequired()
     {
         $config = [
-            'minNumChars' => 2
+            'min' => 2
         ];
         $rule = (new RuleNumeric($config))->setInputString('Abcdefg1');
         $this->expectException(\Exception::class);
@@ -19,7 +19,7 @@ class RuleNumericTest extends TestCase
     public function testShouldReturnTrueWhenNumCharsFoundIsEqualToRequired()
     {
         $config = [
-            'minNumChars' => 2
+            'min' => 2
         ];
         $rule = (new RuleNumeric($config))->setInputString('Abcdefg12');
         $this->assertTrue($rule->passes());
@@ -28,7 +28,7 @@ class RuleNumericTest extends TestCase
     public function testShouldReturnTrueWhenNumCharsFoundIsMoreThenRequired()
     {
         $config = [
-            'minNumChars' => 2
+            'min' => 2
         ];
         $rule = (new RuleNumeric($config))->setInputString('Abcdefg123');
         $this->assertTrue($rule->passes());
